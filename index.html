@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Chatbot</title>
+    <style>
+        /* Reset and Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #00263b, #005f8f);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: auto; /* Allow scrolling */
+            position: relative;
+        }
+        /* Top-left Info Box */
+        .info-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 12px 18px;
+            border-radius: 10px;
+            color: #e1eff6;
+            font-size: 0.95em;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .info-box h2 {
+            font-size: 1.05em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        .info-box p {
+            font-size: 0.9em;
+            color: #d4e7f2;
+        }
+        /* Header Styling */
+        header {
+            text-align: center;
+            color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            color: #cfe2f3;
+            margin-top: 5px;
+        }
+        /* Chatbot Container Styling */
+        .chatbot-container {
+            width: 360px;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: none; /* Hide initially */
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            transition: transform 0.3s ease;
+            animation: popUp 1s ease;
+        }
+        /* Chatbot Iframe */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        /* Button Styles */
+        .action-buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-chat {
+            background-color: #0078d4;
+            transition: transform 0.2s ease;
+        }
+        .btn-chat:hover {
+            background-color: #005fa3;
+            transform: scale(1.05);
+        }
+        .btn-close {
+            background-color: #ff4c4c;
+        }
+        .btn-close:hover {
+            background-color: #d43c3c;
+        }
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            color: #f8f9fa;
+            font-size: 0.9em;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        footer a {
+            color: #b5e1ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Animations */
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .info-box {
+                top: 5px;
+                left: 5px;
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .chatbot-container {
+                width: 100%;
+                max-width: 300px;
+                height: 450px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) {
+            .info-box {
+                font-size: 0.75em;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .chatbot-container {
+                width: 100%;
+                max-width: 280px;
+                height: 400px;
+            }
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top-left Info Box -->
+    <div class="info-box">
+        <h2>Srinivas University</h2>
+        <p>AIML Batch-2022</p>
+    </div>
+
+    <header>
+        <h1>Welcome to Our Classroom Chatbot</h1>
+        <p>Get quick answers to your questions instantly!</p>
+    </header>
+    
+    <div class="chatbot-container" id="chatbotContainer">
+        <iframe allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/ce4d1708-bf6d-4b9b-9daa-20e5bfeadbbf"></iframe>
+    </div> 
+<br>
+<a href="info.html" style="color: #b5e1ff; text-decoration: underline;" target="_blank">How to Use?</a>
+   
+    <div class="action-buttons">
+        <button class="btn btn-chat" id="openBtn" onclick="openChatbot()">Open Chat</button>
+        <button class="btn btn-close" id="closeBtn" onclick="closeChatbot()" style="display: none;">Close Chat</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Classroom Chatbot. Designed with care for students. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function openChatbot() {
+            const chatbot = document.getElementById('chatbotContainer');
+            chatbot.style.display = 'flex';
+            document.getElementById('openBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'inline-block';
+        }
+
+        function closeChatbot() {
+            const chatbot = document.getElementById('chatbotContainer');
+            chatbot.style.display = 'none';
+            document.getElementById('openBtn').style.display = 'inline-block';
+            document.getElementById('closeBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
