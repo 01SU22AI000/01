@@ -21,8 +21,8 @@
             justify-content: center;
             min-height: 100vh;
             overflow: auto;
-            padding: 20px; /* Add padding to the body */
-            position: relative; /* For positioning the info box */
+            padding: 10px;
+            position: relative;
         }
         /* Top-left Info Box */
         .info-box {
@@ -30,64 +30,64 @@
             top: 10px;
             left: 10px;
             background-color: rgba(255, 255, 255, 0.15);
-            padding: 12px 18px;
-            border-radius: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
             color: #e1eff6;
-            font-size: 0.95em;
+            font-size: 0.9em;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            z-index: 10;
         }
         .info-box h2 {
-            font-size: 1.05em;
+            font-size: 1em;
             font-weight: bold;
-            margin-bottom: 5px;
             color: #ffffff;
         }
         .info-box p {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #d4e7f2;
         }
         /* Header Styling */
         header {
             text-align: center;
             color: #f8f9fa;
-            margin-bottom: 20px;
+            margin-top: 60px; /* Add space for the info box */
+            margin-bottom: 15px;
         }
         header h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: bold;
-            margin-bottom: 10px;
         }
         /* Info Container */
         .info-container {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px; /* Increased padding */
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: left;
-            margin-bottom: 20px; /* Add margin below the container */
-        }
-        .info-container h2 {
-            font-size: 1.8em; /* Increased heading size */
             margin-bottom: 15px;
         }
+        .info-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
         .info-container h3 {
-            font-size: 1.5em; /* Increased subheading size */
-            margin-top: 20px; /* Add space above subheadings */
-            margin-bottom: 10px; /* Add space below subheadings */
+            font-size: 1.3em;
+            margin-top: 15px;
+            margin-bottom: 8px;
         }
         .info-container p {
-            font-size: 1.1em; /* Increased paragraph size */
-            margin-bottom: 15px; /* Add space below paragraphs */
+            font-size: 1em;
+            margin-bottom: 12px;
         }
         /* Button Styles */
         .btn-back {
-            padding: 10px 20px;
-            font-size: 1.1em;
+            padding: 8px 18px;
+            font-size: 1em;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             color: #fff;
             background-color: #0078d4;
@@ -95,7 +95,7 @@
             transition: background-color 0.3s ease;
             text-align: center;
             display: block;
-            margin: 20px auto; /* Center the button */
+            margin: 15px auto;
         }
         .btn-back:hover {
             background-color: #005fa3;
@@ -104,8 +104,8 @@
         footer {
             text-align: center;
             color: #f8f9fa;
-            font-size: 0.9em;
-            margin-top: 30px;
+            font-size: 0.8em;
+            margin-top: 20px;
             opacity: 0.8;
         }
         footer a {
@@ -114,6 +114,37 @@
         }
         footer a:hover {
             text-decoration: underline;
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .info-container {
+                padding: 15px;
+            }
+            .info-container h2 {
+                font-size: 1.3em;
+            }
+            .info-container h3 {
+                font-size: 1.1em;
+            }
+            .info-container p {
+                font-size: 0.95em;
+            }
+            .btn-back {
+                padding: 8px 15px;
+                font-size: 0.95em;
+            }
+            .info-box {
+                top: 5px;
+                left: 5px;
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
+            header {
+                margin-top: 70px;
+            }
         }
     </style>
 </head>
@@ -136,17 +167,17 @@
         <p>Click on the "Open Chat" button on the main page. This will display the chatbot interface.</p>
 
         <h3>2. Ask Your Questions</h3>
-        <p>Type your questions in the chat input area. The chatbot is designed to provide quick responses based on the information it has.</p>
+        <p>Type your questions in the chat input area. Our chatbot is here to assist you with a variety of academic inquiries.</p>
 
         <h3>3. Explore Options</h3>
-        <p>You can ask about various topics, including class schedules, assignment due dates, and resources.</p>
+        <p>You can ask about various topics, including class schedules, assignment due dates, and you can also contact your Class Representative for further assistance. </p>
 
         <h3>4. Close the Chat</h3>
         <p>When you're done, click the "Close Chat" button to hide the chatbot interface.</p>
     </div>    
 
     <footer>
-        <p>&copy; 2024 Classroom Chatbot. Designed with care for students.</p>
+        <p>&copy; 2024 Classroom ChatBot. Developed by Virochana.</p>
     </footer>
 </body>
 </html>
